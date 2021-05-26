@@ -1,0 +1,42 @@
+
+body {
+    background-color: grey;
+}
+
+.board {
+    margin: auto;
+    width: 640px;
+    height: 640px;
+   
+
+
+}
+
+.square {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    border-radius: 11%;
+}
+
+.black {
+    background-color: grey;
+}
+
+.white {
+   background-color: white; 
+}
+
+.figure {
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.trophey {
+    width: 640px;
+    height: 90px;
+    border: 20px grey;
+}
