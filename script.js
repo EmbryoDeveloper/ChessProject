@@ -3,7 +3,7 @@ let divSquare = '<div id="s$coord" class="square $color"></div>'
 let divFigure = '<div id="f$coord" class="figure">$figure</div>'
 
 
-$(function () { 
+$(function () {
     start();   
 });
 
@@ -11,12 +11,14 @@ function start() {
     map = new Array(64);
     addSquares();
     showFigures('rnbqkbnrpppppppp11111111111111111111111111111111PPPPPPPPRNBQKBNR');  
+ 
 }
 
 function setDraggable() {
     $('.figure').draggable();
     $('.board').draggable();
 }
+
 
 
 function setDroppable() {
