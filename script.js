@@ -10,7 +10,8 @@ $(function () {
 function start() {
     map = new Array(64);
     addSquares();
-    showFigures('rnbqkbnrpppppppp11111111111111111111111111111111PPPPPPPPRNBQKBNR'); 
+    showFigures('rnbqkbnrpppppppp11111111111111111111111111111111PPPPPPPPRNBQKBNR');
+    touchHandler ()
     init() 
  
 }
