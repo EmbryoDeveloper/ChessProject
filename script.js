@@ -23,7 +23,11 @@ function setBoardDraggable () {
 
 function setDraggable () {
     if (setFigureDraggable() && setBoardDraggable ()) {
-        setFigureDraggable()};
+        setFigureDraggable()
+    }
+        else if (setBoardDraggable()) {
+        setBoardDraggable ()
+    };
 }
 
 
@@ -121,9 +125,5 @@ function getChessSymbol(figure) {
 function isBlackSquareAt(coord) {
     return (coord % 8 + Math.floor(coord / 8)) % 2;
 }
-function returnDoubleMoney (dollar=5) {
-    return dollar * 2;
-}
 
 
-console.log (returnDoubleMoney (6))
