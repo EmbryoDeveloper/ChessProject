@@ -5,14 +5,14 @@ body {
 
 .board {
     margin: auto;
-    width: 640px;
-    height: 640px;
+    width: 320px;
+    height: 320px;
 
 }
 
 .square {
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,7 @@ body {
 }
 
 .figure {
-    font-size: 60px;
+    font-size: 30px;
     cursor: pointer;
 }
 

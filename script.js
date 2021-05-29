@@ -13,21 +13,31 @@ function start() {
     showFigures('rnbqkbnrpppppppp11111111111111111111111111111111PPPPPPPPRNBQKBNR');
 }
 
-function setDraggable() {
+function setFigureDraggable() {
     $('.figure').draggable();
+}
+
+function setBoardDraggable () {
     $('.board').draggable();
 }
+
+function setDraggable () {
+    if (setFigureDraggable() && setBoardDraggable ()) {
+        setFigureDraggable()};
+}
+
 
 function setTouchDraggable () {
     document.addEventListener("touchstart", touch2Mouse, true);
     document.addEventListener("touchmove", touch2Mouse, true);
     document.addEventListener("touchend", touch2Mouse, true);
+    document.addEventListener("touchcancel", touch2Mouse, true);
 }
 
 function touch2Mouse(e)
 {
-  var theTouch = e.changedTouches[0];
-  var mouseEv;
+  let theTouch = e.changedTouches[0];
+  let mouseEv;
 
   switch(e.type)
   {
@@ -37,7 +47,7 @@ function touch2Mouse(e)
     default: return;
   }
 
-  var mouseEvent = document.createEvent("MouseEvent");
+  let mouseEvent = document.createEvent("MouseEvent");
   mouseEvent.initMouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
   theTouch.target.dispatchEvent(mouseEvent);
 
@@ -87,7 +97,7 @@ function showFigureAt(coord, figure) {
         .replace('$coord', coord)
         .replace('$figure', getChessSymbol (figure)))
         setTouchDraggable ();
-        setDraggable();
+        setDraggable ();
 }
 
 function getChessSymbol(figure) {
