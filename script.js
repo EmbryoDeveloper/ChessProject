@@ -4,7 +4,7 @@ let divFigure = '<div id="f$coord" class="figure">$figure</div>'
 
 
 $(function () {
-    start();   
+    start();
 });
 
 function start() {
@@ -18,7 +18,31 @@ function setDraggable() {
     $('.board').draggable();
 }
 
+function setTouchDraggable () {
+    document.addEventListener("touchstart", touch2Mouse, true);
+    document.addEventListener("touchmove", touch2Mouse, true);
+    document.addEventListener("touchend", touch2Mouse, true);
+}
 
+function touch2Mouse(e)
+{
+  var theTouch = e.changedTouches[0];
+  var mouseEv;
+
+  switch(e.type)
+  {
+    case "touchstart": mouseEv="mousedown"; break;  
+    case "touchend":   mouseEv="mouseup"; break;
+    case "touchmove":  mouseEv="mousemove"; break;
+    default: return;
+  }
+
+  var mouseEvent = document.createEvent("MouseEvent");
+  mouseEvent.initMouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
+  theTouch.target.dispatchEvent(mouseEvent);
+
+  e.preventDefault();
+}
 
 
 
@@ -48,6 +72,7 @@ function addSquares() {
             .replace('$coord', coord)
             .replace('$color', 
                 isBlackSquareAt(coord) ? 'black' : 'white'))
+    
     setDroppable();
 }
 
@@ -61,6 +86,7 @@ function showFigureAt(coord, figure) {
     $('#s' + coord).html(divFigure
         .replace('$coord', coord)
         .replace('$figure', getChessSymbol (figure)))
+        setTouchDraggable ();
         setDraggable();
 }
 
@@ -85,3 +111,9 @@ function getChessSymbol(figure) {
 function isBlackSquareAt(coord) {
     return (coord % 8 + Math.floor(coord / 8)) % 2;
 }
+function returnDoubleMoney (dollar=5) {
+    return dollar * 2;
+}
+
+
+console.log (returnDoubleMoney (6))
