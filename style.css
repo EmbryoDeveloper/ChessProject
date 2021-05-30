@@ -1,6 +1,7 @@
 
 body {
     background-color: lightgrey;
+    overflow: hidden;
 }
 
 .board {
@@ -17,7 +18,7 @@ body {
     align-items: center;
     justify-content: center;
     float: left;
-    border-radius: 11%;
+    border-radius: 22%;
 }
 
 .black {
