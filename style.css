@@ -1,7 +1,10 @@
 
+ body {
+    overscroll-behavior-x: none;
+ }
+
 body {
     background-color: lightgrey;
-    overflow: hidden;
 }
 
 .board {
