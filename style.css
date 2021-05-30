@@ -1,6 +1,6 @@
 
  body {
-    overscroll-behavior-x: none;
+    overscroll-behavior-x: contain;
     overflow-y: hidden;
  }
 
